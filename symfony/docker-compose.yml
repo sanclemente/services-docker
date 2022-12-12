@@ -1,0 +1,17 @@
+version: '3.5'
+services:
+#Services
+ symfony:
+  build:
+    context: build
+    args:
+     ENVPATH: symfony.build
+  environment:
+  - SYMFONYV=^5.4
+  - PROJNAME=symfony_project
+  hostname: symfony
+  ports:
+  - "8000:8000"
+  volumes:
+  - ./symfony_project:/symfony_project
+
