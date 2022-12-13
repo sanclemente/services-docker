@@ -1,0 +1,46 @@
+version: '3'
+services:
+#Service odoo
+ odoo:
+  depends_on:
+  - postgres
+  build:
+    context: odoo
+    args:
+     ENVPATH: odoo.build
+  environment:
+  - ODOOV=15.0
+  - DBUSER=odoo
+  - CONFIGFILE=/opt/odoo/odoo.conf
+  - SRCDIR=/opt/odoo/src
+  - EXTMDIR=/opt/odoo/src/modulos
+  - LOGFILE=/var/log/odoo/odoo.log
+  - LOCALFS=/opt/odoo/.local
+  - OCBDIR=OCB
+  - REPOS=https://github.com/OCA/l10n-spain,https://github.com/OCA/partner-contact,https://github.com/OCA/account-financial-tools,https://github.com/OCA/reporting-engine,https://github.com/OCA/account-financial-reporting,https://github.com/OCA/server-ux,https://github.com/OCA/dms,https://github.com/OCA/social,https://github.com/OCA/web,https://github.com/Yenthe666/auto_backup,https://github.com/OCA/community-data-files
+  hostname: odoo
+  #Mapea el 8069 del container al anfitrión
+  ports:
+  - "8069:8069"
+  #Mapeo del directorio de la MV en el container
+  volumes:
+  - ./odoo/src:/opt/odoo/src
+  - ./odoo/logs:/var/log/odoo
+  - odoo_fs:/opt/odoo/.local/share/Odoo/filestore
+#Service postgres
+ postgres:
+  build:
+    context: postgres
+    args:
+     ENVPATH: postgres.build
+  hostname: postgres
+  environment:
+  - DBUSER=odoo
+  - POSTMAINDIR=/etc/postgresql/13/main
+  ports:
+  - "5432:5432"
+  volumes:
+  - postgres_db:/var/lib/postgresql/13/main
+volumes:
+  odoo_fs:
+  postgres_db:

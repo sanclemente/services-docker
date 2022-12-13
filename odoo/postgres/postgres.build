@@ -1,0 +1,3 @@
+#Paquetes a instalar
+PACKS="vim git curl iputils-ping net-tools nano wget procps postgresql postgresql-client"
+

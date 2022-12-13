@@ -1,0 +1,9 @@
+#Variables para odoo
+ODOOV=15.0
+WKHTMLV=0.12.5
+
+#Paquetes a instalar
+PACKS="vim git curl iputils-ping net-tools nano wget procps postgresql-client python3-dev python3-pip libxml2-dev libxslt1-dev libldap2-dev libsasl2-dev libtiff5-dev libopenjp2-7-dev zlib1g-dev libfreetype6-dev liblcms2-dev libwebp-dev libharfbuzz-dev libfribidi-dev libxcb1-dev libpq-dev"
+
+#Comandos a ejecutar en la creación de la imagen: crea usuario bbdd, establece zona horaria, instala wkhtmltopdf y requierements de odoo
+COMMANDS="ln -sf /usr/share/zoneinfo/Europe/Madrid /etc/localtime,cd /tmp && wget https://github.com/wkhtmltopdf/wkhtmltopdf/releases/download/${WKHTMLV}/wkhtmltox_${WKHTMLV}-1.buster_amd64.deb -O wkhtmltox_${WKHTMLV}-1.buster_amd64.deb && apt install -y /tmp/wkhtmltox_${WKHTMLV}-1.buster_amd64.deb,ln -s /usr/local/bin/wkhtmlto* /usr/bin,wget https://raw.githubusercontent.com/OCA/OCB/$ODOOV/requirements.txt -O /tmp/requirements.txt,sed -i '/cryptography==/'d /tmp/requirements.txt,sed -i '/pyopenssl==/'d /tmp/requirements.txt,echo pyopenssl==22.0.0 >> /tmp/requirements.txt,pip3 install -r /tmp/requirements.txt,pip3 install paramiko,pip3 install unidecode"
