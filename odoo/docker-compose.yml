@@ -2,8 +2,6 @@ version: '3'
 services:
 #Service odoo
  odoo:
-  depends_on:
-  - postgres
   build:
     context: odoo
     args:
@@ -29,6 +27,8 @@ services:
   - odoo_fs:/opt/odoo/.local/share/Odoo/filestore
 #Service postgres
  postgres:
+  depends_on:
+  - odoo
   build:
     context: postgres
     args:
