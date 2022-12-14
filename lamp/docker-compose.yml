@@ -20,6 +20,7 @@ services:
   - DB=lamp
   - DBUSER=lamp
   - DBPASS=abc123.
+  - ROOTPASS=abc123.
   build:
     context: build
     args:

@@ -4,6 +4,8 @@
 if [ -d /var/lib/mysql ]
 then
 	service mariadb start
+	#Asigna password a root
+	mysql -uroot -e "ALTER USER 'root'@'%' IDENTIFIED BY '${ROOTPASS}'"
 	#Crea la base de datos si no existe
 	mysql -uroot -e "CREATE DATABASE IF NOT EXISTS $DB"
 	#Crea el usuario si no existe y le otorga permisos a la base de datos
