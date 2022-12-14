@@ -1,0 +1,6 @@
+#Lista de paquetes a instalar
+PACKS="net-tools iproute2 mariadb-server mariadb-client"
+
+#Comandos a ejecutar al crear la imagen separados por ","
+COMMANDS="sed -i 's/127.0.0.1/0.0.0.0/' /etc/mysql/mariadb.conf.d/50-server.cnf"
+

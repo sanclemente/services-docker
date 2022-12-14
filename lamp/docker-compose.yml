@@ -1,0 +1,34 @@
+version: '3.5'
+services:
+#Services
+ apache:
+  hostname: apache
+  build:
+    context: build
+    args:
+     ENVPATH: apache.build
+  depends_on:
+  - mariadb
+  volumes:
+  - wp-data:/var/www/html/wordpress/data
+  ports:
+  - 8080:80
+  - 8043:443
+ mariadb:
+  hostname: mariadb
+  environment:
+  - DB=lamp
+  - DBUSER=lamp
+  - DBPASS=abc123.
+  build:
+    context: build
+    args:
+     ENVPATH: mariadb.build
+  volumes:
+  - mariadb-data:/var/lib/mysql
+  ports:
+  - 8006:3306
+volumes:
+ wp-data:
+ mariadb-data:
+
