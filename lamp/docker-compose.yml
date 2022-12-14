@@ -28,6 +28,8 @@ services:
   - mariadb-data:/var/lib/mysql
   ports:
   - 8006:3306
+  #Acceso a phpmyadmin
+  - 8081:80
 volumes:
  wp-data:
  mariadb-data:

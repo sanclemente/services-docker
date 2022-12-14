@@ -1,6 +1,6 @@
 #Lista de paquetes a instalar
-PACKS="net-tools iproute2 mariadb-server mariadb-client"
+PACKS="vim net-tools iproute2 mariadb-server mariadb-client php"
 
 #Comandos a ejecutar al crear la imagen separados por ","
-COMMANDS="sed -i 's/127.0.0.1/0.0.0.0/' /etc/mysql/mariadb.conf.d/50-server.cnf"
+COMMANDS="DEBIAN_FRONTEND=noninteractive apt install -y phpmyadmin,sed -i 's/127.0.0.1/0.0.0.0/' /etc/mysql/mariadb.conf.d/50-server.cnf,ln -s /usr/share/phpmyadmin /var/www/html,ln -s /etc/phpmyadmin/apache.conf /etc/apache2/sites-enabled"
 
