@@ -1,0 +1,4 @@
+PACKS="vim curl wget iputils-ping nano iproute2 net-tools procps git"
+
+#Instalación de node y npm
+COMMANDS="curl -fsSL https://deb.nodesource.com/setup_current.x | bash - && apt install -y nodejs,apt install -y npm,npm install -g npm@latest"

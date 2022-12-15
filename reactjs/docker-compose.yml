@@ -1,0 +1,16 @@
+version: '3.5'
+services:
+#Services
+ reactjs:
+  build:
+    context: build
+    args:
+     ENVPATH: reactjs.build
+  environment:
+  #Crea proyecto con el nombre indicado, dejar en blanco para que no lo cree
+  - REACTPROJ=myproject
+  ports:
+   - "3000:3000"
+  hostname: reactjs
+  volumes:
+  - ./reactjs_projects:/reactjs_projects
