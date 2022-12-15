@@ -1,0 +1,16 @@
+version: '3.5'
+services:
+#Services
+ vuejs:
+  build:
+    context: build
+    args:
+     ENVPATH: vuejs.build
+  environment:
+  #Crea proyecto con el nombre indicado, dejar en blanco para que no lo cree
+  - VUEPROJ=myproject
+  ports:
+   - "8080:8080"
+  hostname: vuejs
+  volumes:
+  - ./vuejs_projects:/vuejs_projects
