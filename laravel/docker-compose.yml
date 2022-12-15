@@ -1,0 +1,37 @@
+version: '3.5'
+services:
+#Services
+ apache:
+  hostname: apache
+  environment:
+  - LPROJECT=myproject
+  build:
+    context: build
+    args:
+     ENVPATH: apache.build
+  depends_on:
+  - mariadb
+  volumes:
+  - ./laravel_projects:/laravel_projects
+  ports:
+  - 8000:8000
+ mariadb:
+  hostname: mariadb
+  environment:
+  - DB=lamp
+  - DBUSER=lamp
+  - DBPASS=abc123.
+  - ROOTPASS=abc123.
+  build:
+    context: build
+    args:
+     ENVPATH: mariadb.build
+  volumes:
+  - mariadb-data:/var/lib/mysql
+  ports:
+  - 8006:3306
+  #Acceso a phpmyadmin
+  - 8081:80
+volumes:
+ mariadb-data:
+

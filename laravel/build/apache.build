@@ -1,0 +1,6 @@
+#Lista de paquetes a instalar
+PACKS="wget curl net-tools iproute2 apache2 php php-cli php-mysql php-curl php-gd php-mbstring php-xml php-xmlrpc php-soap php-intl php-zip"
+
+#Comandos a ejecutar al crear la imagen separados por ","
+COMMANDS="curl -sS https://getcomposer.org/installer -o /tmp/composer-setup.php,php /tmp/composer-setup.php --install-dir=/usr/local/bin --filename=composer,composer global require laravel/installer"
+
