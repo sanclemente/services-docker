@@ -19,7 +19,10 @@ Escuchando en el puerto 8080 en localhost
 
 ### Variables de entorno
 
-Las indicadas para configurar la base de datos y credenciales
+- *DB*: base de datos para lamp
+- *DBUSER*: usuario de la base de datos de lamp
+- *DBPASS*: password del usuario de la base de datos de lamp
+- *ROOTPASS*: password del usuario root de mariadb
 
 ### Puertos mapeados
 
