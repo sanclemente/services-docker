@@ -1,77 +1,19 @@
-# Instrucciones para crear la aplicación en Vue.js de gestión de Gitlab
+# Escenario vuejs
 
-## Preparar entorno
+Despliegue de un servidor Nodejs con Vue framework con un service:
 
-Una vez levantado el service con:
+## vuejs
 
-```console
-docker-compose up -d
-```
+### Variables de entorno
 
-Entramos en el servicio:
+- *VUEPROJ*: nombre del proyecto que se creará automáticamente dentro de /vuejs_projects
 
-```console
-docker-compose exec nodejs bash
-```
+### Volúmenes
 
-## Creando la Aplicación Vue
+Mapeo del directorio dentro del escenario:
 
-Para crear una plantilla para empezar a trabajar en un proyecto Vue.js genérico:
+- ./vuejs_projects->/vuejs_projects
 
-```console
-cd /src
+### Puertos mapeados
 
-vue create gitlab-app
-```
-
-Seleccionamos la opción de selección manual y marcamos
-
-* Progressive Web App
-* Router
-* etc. (según las necesidades del proyecto)
-
-A continuación:
-
-* elegimos la versión 3 de Vue.js
-
-* Opciones de eslint por defecto
-
-* Todo lo demás por defecto
-
-
-Vamos a necesitar herramientas para trabajar con GraphQL:
-
-```console
-npm install --save vue-apollo graphql apollo-boost
-```
-
-## Generación de módulos
-
-Para generar los módulos necesarios para arrancar el servidor
-
-```console
-npm install
-```
-
-## Arranque del servidor
-
-Para arrancar el servidor de desarrollo, desde dentro del proyecto
-
-```console
-npm run serve
-```
-
-Esto levantará el servicio en el puerto 8080/tcp
-
-## Referencias
-
-
-
-
-
-
-
-
-
-
-
+- 8080:8080 (http)

@@ -13,5 +13,5 @@ services:
   ports:
   - "8000:8000"
   volumes:
-  - ./symfony_project:/symfony_project
+  - ./symfony_projects:/symfony_projects
 
