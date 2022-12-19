@@ -8,7 +8,7 @@ services:
      ENVPATH: symfony.build
   environment:
   - SYMFONYV=^5.4
-  - PROJNAME=symfony_project
+  - PROJNAME=symfony_projects
   hostname: symfony
   ports:
   - "8000:8000"
